@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  AvitoEmployeesApp
-//
-//  Created by piggyback13 on 22.10.2022.
-//
-
 import UIKit
 
 @main
