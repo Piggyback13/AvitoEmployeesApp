@@ -1,13 +1,13 @@
 import Foundation
 import UIKit
 
-protocol ModelDataPresenterDelegate: AnyObject {
+protocol EmployeePresenterDelegate: AnyObject {
     func presentEmployees(employees: [Employee])
 }
 
-typealias PresenterDelegate = ModelDataPresenterDelegate & UIViewController
+typealias PresenterDelegate = EmployeePresenterDelegate & UIViewController
 
-class ModelDataPresenter {
+class EmployeePresenter {
     
     weak var delegate: PresenterDelegate?
     
@@ -27,9 +27,6 @@ class ModelDataPresenter {
             } catch {
                 print(error)
             }
-//            if let data = data, let modelData = try? JSONDecoder().decode(ModelData.self, from: data) {
-//                print(modelData.company.employees[0].skills)
-//            }
         }
         
         task.resume()

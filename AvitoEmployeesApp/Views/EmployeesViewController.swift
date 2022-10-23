@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ModelDataPresenterDelegate {
+class EmployeesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, EmployeePresenterDelegate {
     
     private let tableView: UITableView = {
         let table = UITableView()
@@ -9,7 +9,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }()
     
     private var employees = [Employee]()
-    private let presenter = ModelDataPresenter()
+    
+    private let presenter = EmployeePresenter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
