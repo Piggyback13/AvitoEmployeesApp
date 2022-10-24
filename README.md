@@ -1,6 +1,3 @@
-# AvitoEmployeesApp
-My Avito test task for iOS internship
-
 # Тестовое задание на позицию стажёра в iOS
 
 ### Общее описание задания
