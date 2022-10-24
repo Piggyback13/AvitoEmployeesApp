@@ -66,7 +66,7 @@
 		9B0CC7A12904063500AD5F7C /* AvitoEmployeesApp */ = {
 			isa = PBXGroup;
 			children = (
-				9B656B57290594520080E97C /* Extensions-Utilities */,
+				9B656B57290594520080E97C /* Extensions-Utilities-Services */,
 				9B0CC7B8290406D200AD5F7C /* Presenter */,
 				9B0CC7B7290406CD00AD5F7C /* Views */,
 				9B0CC7B6290406C100AD5F7C /* Model */,
@@ -104,14 +104,14 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		9B656B57290594520080E97C /* Extensions-Utilities */ = {
+		9B656B57290594520080E97C /* Extensions-Utilities-Services */ = {
 			isa = PBXGroup;
 			children = (
 				9B656B582905946F0080E97C /* Constants.swift */,
 				9B656B5A290595F40080E97C /* UIView+Ext.swift */,
 				9BF606972906E7100037F532 /* NetworkConnectionService.swift */,
 			);
-			path = "Extensions-Utilities";
+			path = "Extensions-Utilities-Services";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
