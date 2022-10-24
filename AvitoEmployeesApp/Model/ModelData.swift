@@ -1,5 +1,7 @@
 import Foundation
 
+// MARK: - Structs
+
 struct ModelData: Codable {
     let company: Company
 }
