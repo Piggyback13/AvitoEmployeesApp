@@ -27,13 +27,6 @@ class EmployeeCell: UITableViewCell {
         setPhoneLabelConstraints()
         setSkillsLabelConstraints()
     }
-    
-    // MARK: - Override functions
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
-    }
 
     // MARK: - Required init
     required init?(coder: NSCoder) {
@@ -43,10 +36,15 @@ class EmployeeCell: UITableViewCell {
     // MARK: - Set function for cell elements
     func set(employee: Employee) {
         employeeImage.image = UIImage(named: TextContstants.employeeImageName)
+        
         employeeNameLabel.text = employee.name
-        employeeNameLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        employeeNameLabel.font = UIFont.boldSystemFont(ofSize: 28)
+        
         employeePhoneLabel.text = "Phone: " + employee.phoneNumber
+        employeePhoneLabel.font = UIFont.systemFont(ofSize: 22)
+        
         employeeSkillsLabel.text = "Skills: " + employee.skills.joined(separator: ", ")
+        employeeSkillsLabel.font = UIFont.systemFont(ofSize: 22)
     }
     
     // MARK: - Configure functions
@@ -91,15 +89,15 @@ class EmployeeCell: UITableViewCell {
         employeePhoneLabel.translatesAutoresizingMaskIntoConstraints = false
         employeePhoneLabel.leadingAnchor.constraint(equalTo: employeeImage.trailingAnchor, constant: 20).isActive = true
         employeePhoneLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        employeePhoneLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        employeePhoneLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
         employeePhoneLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
     }
     
     func setSkillsLabelConstraints() {
         employeeSkillsLabel.translatesAutoresizingMaskIntoConstraints = false
         employeeSkillsLabel.leadingAnchor.constraint(equalTo: employeeImage.trailingAnchor, constant: 20).isActive = true
-        employeeSkillsLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
-        employeeSkillsLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        employeeSkillsLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
+        employeeSkillsLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
         employeeSkillsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
     }
 
