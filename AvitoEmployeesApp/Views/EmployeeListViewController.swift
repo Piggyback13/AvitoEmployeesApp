@@ -3,11 +3,11 @@ import UIKit
 class EmployeeListViewController: UIViewController {
     
     // MARK: - Properties
-    var tableView = UITableView()
-    private var employees = [Employee]()
+    var tableView = UITableView(frame: .zero, style: .insetGrouped)
+    var employees = [Employee]()
     private let presenter = EmployeePresenter()
     
-    // MARK: - Override functionses
+    // MARK: - Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Avito Employeers"
@@ -18,7 +18,20 @@ class EmployeeListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkNetworkConnection()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let topSafeArea: CGFloat
+        let bottomSafeArea: CGFloat
         
+        if #available(iOS 11.0, *) {
+            topSafeArea = view.safeAreaInsets.top
+            bottomSafeArea = view.safeAreaInsets.bottom
+        } else {
+            topSafeArea = topLayoutGuide.length
+            bottomSafeArea = bottomLayoutGuide.length
+        }
     }
     
     // MARK: - Functions
@@ -27,6 +40,7 @@ class EmployeeListViewController: UIViewController {
         setTableViewDelegates()
         tableView.register(EmployeeCell.self, forCellReuseIdentifier: TextContstants.employeeCell)
         tableView.pin(to: view)
+        tableView.backgroundColor = .systemGray6
     }
     
     func setTableViewDelegates() {
@@ -39,33 +53,4 @@ class EmployeeListViewController: UIViewController {
         presenter.getModelData()
     }
 
-}
-
-// MARK: - Extentions
-extension EmployeeListViewController: UITableViewDelegate, UITableViewDataSource, EmployeePresenterDelegate {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return employees.count
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TextContstants.employeeCell, for: indexPath) as! EmployeeCell
-        let employee = employees[indexPath.row]
-        cell.set(employee: employee)
-        
-        return cell
-    }
-    
-    func presentEmployees(employees: [Employee]) {
-        self.employees = employees
-        
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
-    
 }
